@@ -1,0 +1,271 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<body>
+
+<div id="page-top"></div>
+
+<div class="body">
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo col-md-2 col-xs-4">
+                <a href="/"><img src="images/logo.png" class="img-responsive" alt=""/></a>
+            </div>
+
+            <div class="col-md-10 col-xs-8 header-right">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="topbar pull-right">
+                        <span class="tp-social">
+                        <!--<a href="/" class="fa fa-twitter"></a>-->
+                        <a href="https://www.facebook.com/Neptunecluboran/?notif_t=page_fan&notif_id=1478471713670884&__mref=message_bubble" class="fa fa-facebook"></a>
+                        <!--<a href="/" class="fa fa-google-plus"></a>
+                        <a href="/" class="fa fa-dribbble"></a>
+                        <a href="/" class="fa fa-linkedin"></a>-->
+                        </span>
+                        </div>
+
+                        <nav class="menu-wrap">
+                            <div id="mobnav-btn"><i class="fa fa-bars"></i></div>
+                            <ul class="sf-menu">                            <li>
+                                    <a class="page-scroll" href="/#page-top">Home</a>
+                                </li>
+                                <li><a class="page-scroll" href="/#tours">Événement</a></li>
+                                <li><a class="page-scroll" href="/#news-wrap">News</a></li>
+                                <li><a class="page-scroll" href="/#playlist">Playlist</a></li>
+                                <li><a class="page-scroll" href="/#gallery">Gallerie</a></li>
+                                <li><a class="page-scroll" href="/#contact">Contact</a></li>
+                                <!--<li>
+                                    <a href="single-album.html">Pages</a>
+                                    <div class="mobnav-subarrow"><i class="fa fa-plus"></i></div>
+                                    <ul>
+                                        <li><a href="single-album.html">Album Single</a></li>
+                                        <li><a href="single-blog-fullwidth.html">Blog Single - Fullwidth</a></li>
+                                        <li><a href="single-blog-sidebar.html">Blog Single - Sidebar</a></li>
+                                    </ul>
+                                </li>-->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HEADER -->
+
+    <div id="page_head">
+        <div class="container">
+            <div class="col-md-12">
+                <h2>Neptune Club</h2>
+
+                <ul class="bcrumb">
+                    <li><a href="#"><i class="fa fa-home"></i></a><span class="sep"><i class="fa fa-angle-right"></i></span></li>
+                    <li>Votre Reservation</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="single-page single-album">
+            <div>
+                <div class="container">
+                
+                    {#<div class="box-wrapper col-md-4">#}
+                        {#<div class="box-info">#}
+                            {#<h2 class="heading">Club neptune</h2>#}
+                            {#<ul class="list-unstyled">#}
+                                {#<li>Artiste: *****</li>#}
+                                {#<li>Date: 2016-04-10</li>#}
+                                {#<li>Genre: ****</li>#}
+                                {#<li>#}
+                                    {#Prix VIP: 5300 DA#}
+                                {#</li>#}
+                            {#</ul>#}
+                            {#<div class="row-fluid margin-bottom-lg ">#}
+                                {#<a class="btn btn-default" href="#">Buy Now</a>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    <form method="post" action="{{ path_for('reservation') }}">
+                        <input type="hidden" name="{{ nameKey }}" value="{{ name }}">
+                        <input type="hidden" name="{{ valueKey }}" value="{{ value }}">
+                        <div class="col-md-12">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                            </div>
+                           <div class="form-group">
+                                <label for="email">Email </label>
+                                <input type="email" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="event">Evenement </label>
+                                <select name="event" id="event" class="form-control">
+                                    <option value="Danny valen">Danny valen</option>
+                                    <option value="Balle masqué et miss neptune ">Balle masqué et miss neptune </option>
+                                </select>
+                            </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label for="lastname">Prénom </label>
+                                <input type="text" class="form-control" name="lastname" id="lastname">
+                            </div>
+                             <div class="form-group">
+                                <label for="telephone">Télephone </label>
+                                <input type="text" class="form-control" name="telephone" id="telephone">
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type de reservation </label>
+                                <select name="type" id="type" class="form-control">
+                                    <option value="balcon">Balcon</option>
+                                    <option value="VIP">VIP</option>
+                                    <option value="SuperVIP">SuperVIP</option>
+                                </select>
+                            </div>
+                           
+                    </div>
+
+                    <!--<div class="form-group">
+                                <label for="date">date </label>
+                                <input type="date" class="form-control" name="date" id="date">
+                            </div>-->
+                    <textarea name="qst" name="" cols="100" rows="5" class="form-control" placeholder="Questions & commentaires"></textarea>
+                    </div>
+                    <br>
+                     <button type="submit" class="btn btn-default">Reservé</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="music-social-icons-container">
+            <div class="music-social-icons text-center">
+                {#<a href="#"><img src="images/clients/amazon.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/bandcamp.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/beatport.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/bigcartel.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/cdbaby.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/emusic.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/facebook.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/google.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/ilike.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/itunes.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/lastfm.png" alt="" ></a>#}
+                {#<a href="#"><img src="images/clients/mixcloud.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/myspace.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/purevolume.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/residentadvisor.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/reverbnation.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/soundcloud.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/spotify.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/triplej.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/twitter.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/unsigned.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/vimeo.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/youtube.png" alt="" /></a>#}
+                {#<a href="#"><img src="images/clients/zune.png" alt="" /></a>#}
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <section class="footer">
+            <div class="container">
+                <div class="col-md-3">
+                    <div class="widget-content">
+                        <h3 class="widget-title">About</h3>
+                        <div class="textwidget">
+                            <p>Ridiculus hac pulvinar adipiscing urna dapibus. Duis sagittis eros nisi porttitor? Sit tristique turpis quis! Ac. Habitasse.</p>
+                            <p class="hidden-xs">&copy; Copyright 2015. MUSIK. <br>All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget-content">
+                        <h3 class="widget-title">Useful Links</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="footer-links">
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Releases</a></li>
+                                    <li><a href="#">Tour</a></li>
+                                    <li><a href="#">Gallery</a></li>
+                                    <li><a href="#">Team</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="footer-links">
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Payments</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget-content">
+                        <h3 class="widget-title">Instafeed</h3>
+                        <ul class="instafeed">
+                            <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
+                            <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
+                            <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
+                            <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
+                            <li><a href="#"><img src="images/5.jpg" alt=""/></a></li>
+                            <li><a href="#"><img src="images/6.jpg" alt=""/></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget-content">
+                        <h3 class="widget-title">Sign up to our Newsletter</h3>
+                        <div class="form mc-form">
+                            <form>
+                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
+                                <button type="submit" class="btn btn-border">Subscribe</button>
+                            </form>
+                        </div>
+                        <br>
+
+                        <p class="visible-xs hidden-sm hidden-md hidden-lg text-center">&copy; Copyright 2015. MUSIK. <br>All Rights Reserved.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER -->
+
+    </div>
+</div>
+
+<!-- Javascript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/tweecool.min.js"></script>
+<script src="js/jplayer.playlist.min.js"></script>
+<script src="js/jquery.jplayer.min.js"></script>
+<script src="http://themesquared.com/html/musik/js/jquery.parallaxify.min.js"></script>
+<script src="js/superfish/js/hoverIntent.js"></script>
+<script src="js/superfish/js/superfish.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/stellar.js"></script>
+<script src="js/prettyphoto/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+
+{% endblock %}

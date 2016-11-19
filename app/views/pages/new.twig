@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <form action="{{ path_for('new') }}" method="post">
+        <div class="form-group">
+            <label for="title">Le titre</label>
+            <input type="text" class="form-control" name="title" id="title">
+        </div>
+        <div class="form-group">
+            <label for="des">Description</label>
+            <textarea class="form-control" name="des" id="des"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Envoyer">
+        </div>
+    </form>
+{% endblock %}
