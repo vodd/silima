@@ -1,0 +1,27 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+    <h3>Derniers news</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if posts %}
+        {% for k in posts %}
+        <tr>
+
+            <td><a href="{{ path_for('shownews',{'id':k.id})    }}">{{ k.title }} </a> </td>
+            <td>{{ k.des }}</td>
+            <td><a href="deletenews/{{ k.id }}" class="btn-sm btn-danger">X</a></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
