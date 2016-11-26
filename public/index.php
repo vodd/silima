@@ -22,10 +22,14 @@ $app->get('/reservation',\App\Controllers\PagesController::class.':getRes')->set
 $app->post('/reservation',\App\Controllers\PagesController::class.':postRes');
 $app->post('/contact',\App\Controllers\PagesController::class.':postContact');
 $app->get('/admin',\App\Controllers\AdminController::class.':home')->setName('admin');
-$app->get('/addnews',\App\Controllers\AdminController::class.':addnews');
+$app->get('/addnews',\App\Controllers\AdminController::class.':addnews')->setName('addnews');
 $app->get('/shownews/{id}',\App\Controllers\AdminController::class.':showNews')->setName('shownews');
 $app->post('/postnews',\App\Controllers\AdminController::class.':postNews')->setName('postnews');
 $app->get('/deletenews/{id}',\App\Controllers\AdminController::class.':deleteNews');
+$app->get('/image',\App\Controllers\AdminController::class.':getImg')->setName('getImg');
+$app->get('/galleries',\App\Controllers\AdminController::class.':galleries')->setName('galleries');
+$app->post('/image',\App\Controllers\AdminController::class.':postImg')->setName('postImg');
+$app->get('/deleteimage/{id}',\App\Controllers\AdminController::class.':delImg');
 
 
 

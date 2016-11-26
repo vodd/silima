@@ -86,4 +86,56 @@ class AdminController {
             $query->execute();
          return $response->withStatus(302)->withHeader("location",'/admin');
     }
+
+    public function getImg(RequestInterface $request, ResponseInterface $response){
+        $nameKey = $this->container->csrf->getTokenNameKey();
+        $valueKey = $this->container->csrf->getTokenValueKey();
+        $name = $request->getAttribute($nameKey);
+        $value = $request->getAttribute($valueKey);
+        $this->container->view->render($response,'admin/galerie.twig',array(
+            'title'=>'Administration',
+            'nameKey'=>$nameKey,
+            'valueKey'=>$valueKey,
+            'name'=>$name,
+            'value'=>$value
+        ));
+    }
+
+    public function postImg(RequestInterface $request, ResponseInterface $response){
+        $input = $request->getParsedBody();
+        if($input['title']){
+            $path = $_FILES['img']['name'];
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+            $unik = uniqid('img-'.date('Ymd').'-');
+            $file = $unik.'.'.$ext;
+            move_uploaded_file($_FILES['img']['tmp_name'],'images/gallerie/'.$file);
+            $sql = 'INSERT INTO galleries (title,file) VALUE (:title,:file)';
+            $query = $this->container->db->prepare($sql);
+            $query->bindParam('title',$input['title']);
+            $query->bindParam('file',$file);
+            $query->execute();
+            return $response->withStatus(302)->withHeader("location",'/admin');
+        }
+    }
+
+    public function delImg(RequestInterface $request, ResponseInterface $response,$id){
+        $route = $request->getAttribute('route');
+        $theid = $route->getArgument('id');
+        if($theid){
+            $sql = 'DELETE FROM galleries WHERE id='.$theid;
+            $query = $this->container->db->prepare($sql);
+            $query->execute();
+            return $response->withStatus(302)->withHeader("location",'/admin');
+        }
+    }
+
+    public function galleries(RequestInterface $request, ResponseInterface $response){
+        $query = $this->container->db->prepare('SELECT * FROM galleries  ORDER BY id DESC ');
+        $query->execute();
+        $posts = $query->fetchAll();
+        $this->container->view->render($response,'admin/galleries.twig',array(
+            'title'=>'Administration',
+            'posts'=> $posts
+        ));
+    }
 }

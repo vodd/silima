@@ -389,84 +389,19 @@
                     <div id="portfolio-holder" class="clearfix">
                         <ul id="portfolio">
                             <!-- Portfolio Item -->
+                            {%  if images %}
+                            {%  for k in images %}
                             <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/1.jpg" class="prettyPhoto">
-                                    <img src="images/portfolio/1.jpg" class="img-responsive" alt="">
+                                <a href="images/gallerie/{{ k.file }}" class="prettyPhoto">
+                                    <img src="images/gallerie/{{ k.file }}" class="img-responsive" alt="">
                                     <div class="caption">
                                         <i class="fa fa-search"></i>
                                     </div>
                                 </a>
                             </li>
+                            {%  endfor %}
+                            {%  endif %}
 
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/2.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/2.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/3.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/3.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/4.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/4.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/5.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/5.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/6.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/6.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/7.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/7.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <!-- Portfolio Item -->
-                            <li class="item hover-image-holder col-md-3">
-                                <a href="images/portfolio/8.jpg" class="prettyPhoto">
-                                    <img  src="images/portfolio/8.jpg" class="img-responsive" alt="">
-                                    <div class="caption">
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>

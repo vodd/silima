@@ -1,0 +1,19 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+    <h3>Ajouter une image</h3>
+    <form action="{{ path_for('postImg') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="{{ nameKey }}" value="{{ name }}">
+        <input type="hidden" name="{{ valueKey }}" value="{{ value }}">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" class="form-control" name='title' id="title" placeholder="Titre"  required>
+        </div>
+        <div class="form-group">
+            <label for="img">Votre image</label>
+            <input type="file" class="form-control" name='img' id="title" required>
+        </div>
+        <button class="btn btn-primary">Valider</button>
+    </form>
+
+{% endblock %}

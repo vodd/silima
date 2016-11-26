@@ -12,9 +12,12 @@ Class PagesController {
     }
 
     public function home(RequestInterface $request, ResponseInterface $response){
-//        $query = $this->container->db->prepare('SELECT * FROM posts');
-//        $query->execute();
-//        $posts = $query->fetchAll();
+        $queryP = $this->container->db->prepare('SELECT * FROM posts');
+        $queryP->execute();
+        $posts = $queryP->fetchAll();
+        $queryi = $this->container->db->prepare('SELECT * FROM galleries ORDER BY id DESC LIMIT 8 ');
+        $queryi->execute();
+        $img = $queryi->fetchAll();
         $nameKey = $this->container->csrf->getTokenNameKey();
         $valueKey = $this->container->csrf->getTokenValueKey();
         $name = $request->getAttribute($nameKey);
@@ -24,7 +27,9 @@ Class PagesController {
             'nameKey'=>$nameKey,
             'valueKey'=>$valueKey,
             'name'=>$name,
-            'value'=>$value
+            'value'=>$value,
+            'posts' =>$posts,
+            'images' =>$img
         ));
     }
 
