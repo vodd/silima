@@ -15,9 +15,12 @@ Class PagesController {
         $queryP = $this->container->db->prepare('SELECT * FROM posts');
         $queryP->execute();
         $posts = $queryP->fetchAll();
-        $queryi = $this->container->db->prepare('SELECT * FROM galleries ORDER BY id DESC LIMIT 8 ');
+        $queryi = $this->container->db->prepare('SELECT * FROM galleries WHERE type="img" ORDER BY id DESC LIMIT 8 ');
         $queryi->execute();
         $img = $queryi->fetchAll();
+        $querym = $this->container->db->prepare('SELECT * FROM galleries WHERE type="zic" ORDER BY id DESC LIMIT 8 ');
+        $querym->execute();
+        $zic = $querym->fetchAll();
         $nameKey = $this->container->csrf->getTokenNameKey();
         $valueKey = $this->container->csrf->getTokenValueKey();
         $name = $request->getAttribute($nameKey);
@@ -29,7 +32,8 @@ Class PagesController {
             'name'=>$name,
             'value'=>$value,
             'posts' =>$posts,
-            'images' =>$img
+            'images' =>$img,
+            'zic'=>$zic
         ));
     }
 

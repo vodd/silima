@@ -109,10 +109,11 @@ class AdminController {
             $unik = uniqid('img-'.date('Ymd').'-');
             $file = $unik.'.'.$ext;
             move_uploaded_file($_FILES['img']['tmp_name'],'images/gallerie/'.$file);
-            $sql = 'INSERT INTO galleries (title,file) VALUE (:title,:file)';
+            $sql = 'INSERT INTO galleries (title,file,type) VALUE (:title,:file,:type)';
             $query = $this->container->db->prepare($sql);
             $query->bindParam('title',$input['title']);
             $query->bindParam('file',$file);
+            $query->bindParam('type',$input['type']);
             $query->execute();
             return $response->withStatus(302)->withHeader("location",'/admin');
         }

@@ -8,10 +8,23 @@
         {% if posts %}
             {% for k in posts %}
                 <div class="col-xs-2">
+                    {% if k.type == 'img' %}
                 <figure>
-                <img src="images/gallerie/{{ k.file }}" alt="..." class="img-fluid">
+
+                <img src="../images/gallerie/{{ k.file }}" alt="..." class="img-fluid">
                     <figcaption><a href="deleteimage/{{ k.id }}" class="btn btn-sm btn-danger delimg"> x</a></figcaption>
                 </figure>
+                    {% endif %}
+                </div>
+                <div class="col-xs-2">
+                    {% if k.type == 'zic' %}
+                        <figure>
+
+                            <img src="../images/zic.jpg" alt="..." class="img-fluid">
+                            <figcaption><a href="deleteimage/{{ k.id }}" class="btn btn-sm btn-danger delimg"> x</a></figcaption>
+                            <h6>{{ k.title }}</h6>
+                        </figure>
+                    {% endif %}
                 </div>
             {% endfor %}
         {% endif %}
