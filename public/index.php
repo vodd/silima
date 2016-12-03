@@ -12,7 +12,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
     "path" => "/admin", /* or ["/admin", "/api"] */
     "secure" => false,
     "users" => [
-        "root" => "hpl1706",
+        "root" => "t00r",
     ]
 ]));
 require '../app/container.php';
